@@ -6,7 +6,7 @@
 var XLSX = {};
 (function make_xlsx(XLSX){
 XLSX.version = '0.9.3';
-var current_codepage = 1200, current_cptable;
+var current_codepage = 1200, current_cptable, cptable;
 if(typeof module !== "undefined" && typeof require !== 'undefined') {
 	if(typeof cptable === 'undefined') cptable = require('./dist/cpexcel.js');
 	current_cptable = cptable[current_codepage];
@@ -1515,7 +1515,7 @@ if(has_buf) {
 			if(ww !== 0) { out[k++] = ww&255; out[k++] = ww>>>8; ww = 0; }
 			out[k++] = w%256; out[k++] = w>>>8;
 		}
-		out.length = k;
+		// out.length = k;
 		return out.toString('ucs2');
 	};
 	var corpus = "foo bar baz\u00e2\u0098\u0083\u00f0\u009f\u008d\u00a3";
